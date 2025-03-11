@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clarusway Project - 004</title>
+  <title>kubernetes project - 004</title>
   <style>
     body {
       max-width: 600px;
@@ -50,13 +50,13 @@
       color: red;
     }
 
-    .sectionnote{
+    .sectionnote {
       color: rgba(190, 31, 164, 0.89);
     }
-    .footnote{
+
+    .footnote {
       color: rgba(0, 0, 255, 0.712);
     }
-
   </style>
 </head>
 
@@ -65,24 +65,25 @@
   <div><img src="https://clarusway.com/wp-content/uploads/2022/12/clarusway-logo-black.png" /></div>
 
   <h1>Project : Phonebook Application</h1>
-  <h2>Welcome to {{developer_name}}'s Phonebook Application</h2>
-  <h2 class="sectionnote">Enter a name to search</h2>
+  <h2>Welcome to aredo's Phonebook Application</h2>
+  <h2 class="sectionnote">Enter a name and phone number to {{action_name}}</h2>
 
   <form action="#" method="post">
     <label for="name"><b>Name:</b></label>
-    <input placeholder="Keyword" type="text" name="username" id="name">
-    <button type="submit">Search</button>
-    {% if show_result %}
-        <h1>Result for '{{ keyword }}' </h1>
-            <ul> 
-            {% for person in persons %}
-            <li>Name: <b>{{ person['name'] }} </b>  ---- Phone Number: <b>{{ person['number'] }}</b></li>
-            {% endfor %}
-            </ul>
+    <input placeholder="Full Name" type="text" name="username" id="name" required>
+    <label for="number"><b>Phone Number:</b></label>
+    <input placeholder="1234567890" name="phonenumber" id="number" required />
+    <button type="submit">{{ action_name.title() }}</button>
+    {% if not_valid %}
+    <p class="warning"><b>{{ message }}</b></p>
     {% endif %}
+    {% if show_result %}
+    <h2 class="sectionnote"> {{ result }} </h1>
+      {% endif %}
   </form>
 
-  <p class="footnote"><i>This app is developed in Python by <b>{{ developer_name }}</b> and deployed with Flask on AWS Cloud using Clouldformation Service.</i></p>
+  <p class="footnote"><i>This app is developed in Python by <b>aredo</b> and deployed with Flask on AWS Cloud using
+      Clouldformation Service.</i></p>
 </body>
 
 </html>

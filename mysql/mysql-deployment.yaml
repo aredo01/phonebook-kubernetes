@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mysql
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mysql
+    spec:
+      volumes:
+        - name: mysql-pv-storage
+          persistentVolumeClaim:
+            claimName:  mysql-pv-claim
+      containers:
+      - image: mysql:5.7
+        name: mysql
+        envFrom:
+        - secretRef:
+            name: mysql-db
+        - configMapRef:
+            name: mysql-cm
+        volumeMounts:
+        - mountPath: "/var/lib/mysql"
+          name: mysql-pv-storage
+status: {}

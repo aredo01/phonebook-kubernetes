@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: result-server
+  name: result-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: result-server
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: result-server
+    spec:
+      containers:
+      - image: aredo01/result-server:latest
+        name: result-server
+        envFrom:
+        - secretRef:
+            name: server-db-secret
+        - configMapRef:
+            name: server-cm
+        resources: {}
+status: {}

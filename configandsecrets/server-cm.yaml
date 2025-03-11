@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  MYSQL_DATABASE: phonebook
+  MYSQL_USER: clarus
+  MYSQL_DATABASE_HOST: mysql
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: server-cm

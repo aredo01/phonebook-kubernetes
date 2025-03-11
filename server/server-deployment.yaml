@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: crud-server
+  name: crud-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crud-server
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: crud-server
+    spec:
+      containers:
+      - image: aredo01/web-server:latest
+        name: web-server
+        envFrom:
+        - secretRef:
+            name: server-db-secret
+        - configMapRef:
+            name: server-cm
+        resources: {}
+status: {}
