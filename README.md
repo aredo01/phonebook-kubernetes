@@ -1,7 +1,7 @@
 # 📞 Phonebook-Kubernetes Project
 ## 🏗️ Microservice Architecture for Phonebook Web Application (Python Flask) with MySQL using Kubernetes
 ### 📌 Description
-The **Phonebook Microservice Web Application** is designed to provide hands-on experience in deploying a **microservice-based** web application with **MySQL** using **Docker** and **Kubernetes**. This project consists of three main services:
+The **Phonebook Microservice Web Application** is deploying a **microservice-based** web application with **MySQL** using **Docker** and **Kubernetes**. This project consists of three main services:
 
 - **Frontend Service**: Handles search operations.
 - **Backend Service**: Manages create, update, and delete operations.
